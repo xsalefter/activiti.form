@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <title>Javascript Dynamic Form</title>
+
+    <!-- bootstrap -->
+    <link type="text/css" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+  </head>
+  <body>
+    <h1>Form will be generated here!</h1>
+    <div id="dynamicForm">
+    </div>
+
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.1.min.js"></script> <!-- jquery -->
+    <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script> <!-- Twitter Bootstrap -->
+    <script type="text/javascript" src="activiti.form.js"></script>
+
+    <script>
+      $(document).ready(function() {
+        var activitiData = [
+          {"name" : "doubleTaskVar", "scope" : "local", "type" : "double", "value" : 99.99 }, 
+          {"name" : "stringProcVar", "scope" : "global", "type" : "string", "value" : "This is a ProcVariable" }
+        ];
+
+        var result = createActivitiForm({
+          data: activitiData,
+          actionURL: 'http://localhost/go-to-here'
+          
+        });
+
+        $('#dynamicForm').html(result);
+      });
+    </script>
+  </body>
+</html>
